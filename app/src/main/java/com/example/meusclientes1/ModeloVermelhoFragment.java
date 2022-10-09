@@ -1,4 +1,6 @@
 package com.example.meusclientes1;
 
-public class ModeloVermelhoFragment {
+import androidx.fragment.app.Fragment;
+
+public class ModeloVermelhoFragment extends Fragment {
 }

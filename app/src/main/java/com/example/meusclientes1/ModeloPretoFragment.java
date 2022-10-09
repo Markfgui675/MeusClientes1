@@ -1,4 +1,8 @@
 package com.example.meusclientes1;
 
-public class ModeloPretoFragment {
+import android.widget.FrameLayout;
+
+import androidx.fragment.app.Fragment;
+
+public class ModeloPretoFragment extends Fragment {
 }
