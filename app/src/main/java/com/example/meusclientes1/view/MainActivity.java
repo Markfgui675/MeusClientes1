@@ -1,4 +1,4 @@
-package com.example.meusclientes1;
+package com.example.meusclientes1.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.meusclientes1.R;
+import com.example.meusclientes1.controller.ClienteController;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,12 +29,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MenuItem nav_vermelho;
     MenuItem nav_azul;
 
+    ClienteController clienteController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        clienteController = new ClienteController(getApplicationContext());
 
     }
 

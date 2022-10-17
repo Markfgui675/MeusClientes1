@@ -1,4 +1,4 @@
-package com.example.meusclientes1;
+package com.example.meusclientes1.view;
 
 import android.widget.FrameLayout;
 
