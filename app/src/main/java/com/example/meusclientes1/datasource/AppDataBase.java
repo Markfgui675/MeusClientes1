@@ -1,11 +1,15 @@
 package com.example.meusclientes1.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.meusclientes1.api.AppUtil;
 import com.example.meusclientes1.datamodel.ClienteDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
@@ -32,4 +36,21 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+    public boolean insert(String tabela, ContentValues dados){
+        db = getWritableDatabase();
+
+        boolean retorno = false;
+
+        try{
+            retorno = db.insert(tabela, null, dados) > 0;
+
+        } catch (Exception e){
+            Log.d(AppUtil.TAG, "insert: "+e.getMessage());
+            //Toast.makeText(, "Não foi possível cadastrar o cliente.", Toast.LENGTH_SHORT).show();
+        }
+
+        return retorno;
+    }
+
 }
