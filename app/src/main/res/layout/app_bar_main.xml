@@ -11,7 +11,20 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorAccent" >
+
+        <androidx.appcompat.widget.Toolbar
+
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            tools:ignore="MissingClass" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <include layout="@layout/content_main" />
 
     <!--Botão flutuante-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton

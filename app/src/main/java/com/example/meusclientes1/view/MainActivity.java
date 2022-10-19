@@ -2,6 +2,8 @@ package com.example.meusclientes1.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.res.ColorStateList;
@@ -43,11 +45,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public void onBackPressed(){
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
         int id = item.getItemId();
 
         if(id == R.id.nav_preto){
+
+            menu = navigationView.getMenu();
+
+            nav_preto = menu.findItem(R.id.nav_preto);
+            nav_preto.setTitle("Preto ativado");
+
+            nav_vermelho = menu.findItem(R.id.nav_vermelho);
+            nav_vermelho.setTitle("Vermelho");
+
+            nav_azul = menu.findItem(R.id.nav_azul);
+            nav_azul.setTitle("Azul");
+
+            navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloPretoFragment()).commit();
+
+        } else if(id == R.id.nav_vermelho) {
+
+            menu = navigationView.getMenu();
+
+            nav_preto = menu.findItem(R.id.nav_preto);
+            nav_preto.setTitle("Preto");
+
+            nav_vermelho = menu.findItem(R.id.nav_vermelho);
+            nav_vermelho.setTitle("Vermelho ativo");
+
+            nav_azul = menu.findItem(R.id.nav_azul);
+            nav_azul.setTitle("Azul");
+
+            navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloPretoFragment()).commit();
+
+        } else if(id == R.id.nav_azul){
 
             menu = navigationView.getMenu();
 
@@ -58,11 +104,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             nav_vermelho.setTitle("Vermelho");
 
             nav_azul = menu.findItem(R.id.nav_azul);
-            nav_azul.setTitle("Azul ativado");
+            nav_azul.setTitle("Azul Ativado");
 
             navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
 
-            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloPretoFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloAzulFragment()).commit();
 
         } else if (id == R.id.nav_adicionar_cliente){
 
@@ -74,6 +120,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
