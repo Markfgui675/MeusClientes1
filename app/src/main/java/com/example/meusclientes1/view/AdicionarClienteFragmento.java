@@ -31,11 +31,8 @@ public class AdicionarClienteFragmento extends Fragment {
 
         view = inflater.inflate(R.layout.fragmente_adicionar_cliente, container, false);
 
-        TextView txtTitulo = view.findViewById(R.id.txtTitulo);
 
-        txtTitulo.setText("Cliente VIP DEMO");
 
-        txtTitulo.setTextColor(ColorStateList.valueOf(Color.CYAN));
 
         return view;
 
