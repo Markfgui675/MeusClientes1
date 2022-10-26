@@ -14,7 +14,7 @@ import com.example.meusclientes1.datamodel.ClienteDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "AppMinhaIdeia.sqlite";
+    public static final String DB_NAME = "MeusClientes.sqlite";
     public static final int DB_VERSION = 1;
 
     SQLiteDatabase db;

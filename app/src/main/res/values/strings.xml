@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MeusClientes1</string>
+    <string name="app_name">Meus Clientes</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Cliente</string>
@@ -14,5 +14,16 @@
     <string name="perfil">Perfil</string>
     <string name="todo">TODO</string>
 
+    <!--Textos para o layout Adicionar Novo Cliente-->
+    <string name="novoCliente">Adicionar Novo Cliente</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">Email</string>
+    <string name="cep">CEP</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="numero">Numero</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="termosdeuso">Termo de Uso</string>
 
 </resources>
