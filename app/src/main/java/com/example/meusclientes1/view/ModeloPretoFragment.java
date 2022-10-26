@@ -9,28 +9,17 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.meusclientes1.R;
 
 public class ModeloPretoFragment extends Fragment {
 
-    View view;
-
-    public ModeloPretoFragment() {
-
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_preto, container, false);
     }
-
-    public void onCreate(Bundle savedInstances) {
-        super.onCreate(savedInstances);
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        view = inflater.inflate(R.layout.fragment_preto, container, false);
-        TextView txtTitulo = view.findViewById(R.id.txtTitulo);
-        txtTitulo.setText(R.string.modelo_fragment);
-        txtTitulo.setTextColor(ColorStateList.valueOf(Color.CYAN));
-        return view;
-    }
-
 }

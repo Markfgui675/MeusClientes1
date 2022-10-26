@@ -9,34 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.meusclientes1.R;
 
 public class ModeloAzulFragment extends Fragment {
 
-    View view;
-
-    public ModeloAzulFragment(){
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_azul, container, false);
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceSate){
-
-        view = inflater.inflate(R.layout.fragment_azul, container, false);
-
-        TextView txtTitulo = view.findViewById(R.id.txtTitulo);
-
-        txtTitulo.setText(R.string.modelo_fragment);
-
-        txtTitulo.setTextColor(ColorStateList.valueOf(Color.CYAN));
-
-        return view;
-
-    }
-
 }

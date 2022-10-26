@@ -8,28 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.meusclientes1.R;
 
 public class ModeloVermelhoFragment extends Fragment {
 
-    View view;
-
-    public ModeloVermelhoFragment() {
-
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_vermelho, container, false);
     }
-
-    public void onCreate(Bundle savedInstances) {
-        super.onCreate(savedInstances);
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        view = inflater.inflate(R.layout.fragment_vermelho, container, false);
-        TextView txtTitulo = view.findViewById(R.id.txtTitulo);
-        txtTitulo.setText(R.string.modelo_fragment);
-        txtTitulo.setTextColor(ColorStateList.valueOf(Color.CYAN));
-        return view;
-    }
-
 }
