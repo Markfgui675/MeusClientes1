@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,46 +35,18 @@ public class AdicionarClienteFragmento extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-
-        //initComponents();
-
-        //eventsButtons();
-
-        return inflater.inflate(R.layout.fragmente_adicionar_cliente, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
-    /**
-     * Eventos executados pelos botões
-     */
-    private void eventsButtons() {
+    @Override
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
 
-        cancelar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        initComponents();
 
+        eventsButtons();
 
-
-            }
-        });
-
-        salvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                boolean isDadosOK = true;
-
-
-
-                if(isDadosOK){
-                    clienteController.incluir(novoCliente);
-                } else {
-
-                }
-
-            }
-        });
-
+        return inflater.inflate(R.layout.fragmente_adicionar_cliente, container, false);
     }
 
     /**
@@ -96,8 +69,50 @@ public class AdicionarClienteFragmento extends Fragment {
         cancelar = view.findViewById(R.id.btnCancelar);
         salvar = view.findViewById(R.id.btnSalvar);
 
-        novoCliente = new Cliente();
-        clienteController = new ClienteController(getContext());
+        //novoCliente = new Cliente();
+        //clienteController = new ClienteController(getContext());
+
+    }
+
+    /**
+     * Eventos executados pelos botões
+     */
+    private void eventsButtons() {
+
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+        });
+
+        salvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                boolean isDadosOK = true;
+
+                if(TextUtils.isEmpty(nome.getText().toString())){
+                    nome.setError("Digite o nome completo!");
+                    nome.requestFocus();
+                    isDadosOK = false;
+                }
+
+                if(isDadosOK){
+                    //clienteController.incluir(novoCliente);
+                } else {
+                    // notificar o usuário
+                    // toast
+                    // push notification
+
+
+
+                }
+
+            }
+        });
 
     }
 }
